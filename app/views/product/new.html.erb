@@ -1,0 +1,30 @@
+<div class="container">
+<h2>ADD NEW PRODUCT</h2>
+<%= form_for(@products,  url: new_product_path(@product) ) do |p| %>
+      <div class="field" >
+        <%= p.label :"Select Category"%><br />
+        <%= p.select :category_id, options_for_select(@options), {},{ :style => 'display: inline'}  %>
+      </div>
+      <div class="field">
+        <%= p.label :"Product Name"%><br />
+        <%= p.text_field :name, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= p.label :"Ingridents"%><br />
+        <%= p.text_field :ingridents, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= p.label :"Price"%><br />
+        <%= p.text_field :price, autofocus: true %>
+      </div>
+        <%= p.fields_for :extra do |e|%>
+            <div class="field">
+              <%= e.label :"Anything Else??"%><br />
+              <%= e.text_field :name, autofocus: true %>
+            </div>
+        <%end%>
+  <div class="actions">
+    <%= p.submit "Add"%>
+  </div>
+<% end %>
+</div>
