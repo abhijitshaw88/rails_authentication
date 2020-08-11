@@ -1,1 +1,4 @@
-<%= link_to "Add Product", new_product_url, :class => 'navbar-link btn'%></li>
+
+<%= smart_listing_render :products, :formats => [:html] %>
+
+<%= link_to "Add Product", new_product_url, :class => 'navbar-link btn right'%></li>

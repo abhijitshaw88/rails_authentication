@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require smart_listing
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 //= require materialize
 
-$(document).ready(function(){
-  console.log("hello");
-$(".dropdown-trigger").dropdown();
-});
+// $.get( "/product", function(data) {
+//   alert("I am Working");
+// });
 console.log("ok");

@@ -1,5 +1,12 @@
 class ProductController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
+
+
+
   def index
+      scope=Product.all
+     @products=smart_listing_create :products, scope, partial: "product/list"
   end
   def new
     @products=Product.new
@@ -11,8 +18,25 @@ class ProductController < ApplicationController
                                                             extra_attributes: [:name]
                                                           ))
 
-    byebug
+    # byebug
     @products.save
     redirect_to root_path
   end
+
+
+
+  def update
+    @products.update_attributes(params.require(:products).permit(:name))
+  end
+
+
+  def smart_listing_collection
+    @products ||= Product.all
+  end
+  helper_method :smart_listing_collection
+
+
+
+
+
 end
