@@ -1,14 +1,19 @@
-<table>
+<table class="striped">
   <tr>
+      <th> Category</th>
       <th> Name</th>
       <th> Price</th>
       <th> Ingridents</th>
+       <th> Extra</th>
+
   </tr>
       <% smart_listing.collection.each do |products|%>
       <tr>
+          <th> <%= products.category.name%></th>
           <th> <%= products.name%></th>
           <th> <%= products.price %></th>
           <th> <%= products.ingridents %></th>
+          <th> <%= products.extra.name if products.extra %></th>
       </tr>
       <%end%>
   </table>

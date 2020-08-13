@@ -1,0 +1,13 @@
+<div class="container">
+<h2>ADD NEW CATEGORY</h2>
+  <%= form_for(@category,  url: category_new_url(@category) ) do |c| %>
+
+      <div class="field">
+        <%= c.label :"Category Name"%><br />
+        <%= c.text_field :name, autofocus: true %>
+      </div>
+      <div class="actions">
+        <%= c.submit "Add"%>
+      </div>
+  <% end %>
+</div>

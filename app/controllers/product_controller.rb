@@ -6,7 +6,7 @@ class ProductController < ApplicationController
 
   def index
       scope=Product.all
-     @products=smart_listing_create :products, scope, partial: "product/list"
+     @products=smart_listing_create :products, scope, partial: "product/list", page_sizes: [ 5]
   end
   def new
     @products=Product.new

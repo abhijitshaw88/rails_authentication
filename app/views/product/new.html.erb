@@ -3,7 +3,7 @@
 <%= form_for(@products,  url: new_product_path(@product) ) do |p| %>
       <div class="field" >
         <%= p.label :"Select Category"%><br />
-        <%= p.select :category_id, options_for_select(@options), {},{ :style => 'display: inline'}  %>
+        <%= p.select :category_id, Category.all.collect { |c| [ c.name, c.id ] }, {},{ :style => 'display: inline'}  %>
       </div>
       <div class="field">
         <%= p.label :"Product Name"%><br />
